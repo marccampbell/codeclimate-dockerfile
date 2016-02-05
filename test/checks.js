@@ -73,4 +73,33 @@ describe("checks", function(){
       expect(checks.is_valid_add("test test2 test")).to.have.length(1);
     })
   });
+
+  describe("#is_wrapped_in_quotes(str)", function() {
+    it("returns a bool indicating if there are matching quotes on each side of a string", function(){
+      expect(checks.is_wrapped_in_quotes("test")).to.equal(false);
+      expect(checks.is_wrapped_in_quotes("'tes't")).to.equal(false);
+      expect(checks.is_wrapped_in_quotes("'test'")).to.equal(true);
+      expect(checks.is_wrapped_in_quotes("\"test\"")).to.equal(true);
+    })
+  }),
+
+  describe("#is_valid_workdir(args)", function() {
+    it("validates workdir command is valid", function(){
+      expect(checks.is_valid_workdir("test")).to.be.empty;
+      expect(checks.is_valid_workdir("/test/test")).to.be.empty;
+      expect(checks.is_valid_workdir("test test")).to.have.length(1);
+      expect(checks.is_valid_workdir("\"test test\"")).to.be.empty;
+      expect(checks.is_valid_workdir("'test test'")).to.be.empty;
+    })
+  });
+
+  describe("#is_valid_env(args)", function() {
+    it("validates env command is valid", function(){
+      expect(checks.is_valid_env("test=test")).to.be.empty;
+      expect(checks.is_valid_env("test=bad test")).to.have.length(1);
+      expect(checks.is_valid_env("test test")).to.be.empty;
+      expect(checks.is_valid_env("test longer value")).to.be.empty;
+      expect(checks.is_valid_env("test=test test2=test2")).to.be.empty;
+    })
+  });
 });

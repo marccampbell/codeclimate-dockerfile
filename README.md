@@ -64,7 +64,7 @@ sudo codeclimate analyze --dev
 - [ ] Exposed ports should be numeric and in the accepted range
 
 ### `ENV`
-- [ ] Format of `ENV`
+- [x] Format of `ENV`
 - [ ] Best practice of only using a single `ENV` line to reduce cache layer count
 
 ### `ADD`
@@ -87,7 +87,8 @@ sudo codeclimate analyze --dev
 - [x] Should be followed by exactly 1 parameter
 
 ### `WORKDIR`
-- [ ] Support
+- [x] Validate that it has exactly 1 parameter
+- [x] `WORKDIR` can only expand variables previously set in `ENV` commands
 
 ### `ARG`
 - [ ] Support
