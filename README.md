@@ -35,6 +35,7 @@ sudo codeclimate analyze --dev
 - [x] This should be the first command in the Dockerfile
 - [x] Base image should specify a tag
 - [x] Base image should not use latest tag
+- [x] Support `FROM scratch` without a tag
 - [ ] Support the `FROM <image>@<digest>` syntax
 - [ ] Allow config to specify "allowed" base layers
 

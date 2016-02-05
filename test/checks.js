@@ -22,6 +22,7 @@ describe("checks", function(){
 
   describe("#base_image_tag(args)", function(){
     it("validates base image command", function(){
+      expect(checks.base_image_tag("scratch")).to.be.empty;
       expect(checks.base_image_tag("ubuntu:14.04")).to.be.empty;
       expect(checks.base_image_tag("ubuntu:latest")).to.have.length(1);
       expect(checks.base_image_tag("ubuntu")).to.have.length(1);
