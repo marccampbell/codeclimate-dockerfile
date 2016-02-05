@@ -17,7 +17,9 @@
 - `USER` command should have exactly 1 parameter
 - `sudo` usage in any command is not allowed
 - `MAINTAINER` command should have exactly 1 parameter
-
+- `ADD` command should have at least 2 paramters
+- `ADD` source command(s) cannot be absolute or relative out of current build context
+- `ADD` commands with wildcards or multiple src params should use a dest dir, not file
 
 // TODO (ideas)
 - Don't allow exposing the same port multiple times
