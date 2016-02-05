@@ -60,4 +60,16 @@ describe("checks", function(){
       expect(checks.is_dir_in_context("test")).to.equal(true);
     })
   });
+
+  describe("#is_valid_add(args)", function() {
+    it("validates add command is valid", function(){
+      expect(checks.is_valid_add("./ test/")).to.be.empty;
+      expect(checks.is_valid_add("./ test")).to.be.empty;
+      expect(checks.is_valid_add("test? test")).to.have.length(1);
+      expect(checks.is_valid_add("test/test* test")).to.have.length(1);
+      expect(checks.is_valid_add("/text test/")).to.have.length(1);
+      expect(checks.is_valid_add("test test2 test/")).to.be.empty;
+      expect(checks.is_valid_add("test test2 test")).to.have.length(1);
+    })
+  });
 });
