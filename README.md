@@ -103,4 +103,4 @@ sudo codeclimate analyze --dev
 ### Misc
 - [x] Only valid Dockerfile commands are present
 - [x] All commands should have at least 1 parameter
-- [ ] Check that commands are written as upper case commands
+- [x] Check that commands are written as upper case commands
