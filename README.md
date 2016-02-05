@@ -38,14 +38,8 @@ sudo codeclimate analyze --dev
 - [ ] Support the `FROM <image>@<digest>` syntax
 - [ ] Allow config to specify "allowed" base layers
 
-### `EXPOSE`
-- [x] Only the container port should be listed
-- [ ] All ports should be exposed in a single cache layer (line)
-- [ ] The same port number should not be exposed multiple times
-- [ ] Exposed ports should be numeric and in the accepted range
-
-### `LABEL`
-- [x] Format should be key=value
+### `MAINTAINER`
+- [x] Should be followed by exactly 1 parameter (@ sign)
 
 ### `RUN`
 - [x] sudo is not included in the command
@@ -54,25 +48,58 @@ sudo codeclimate analyze --dev
 - [x] apt-get install commands should be paired with a `rm -rf /var/lib/apt/lists/*` in the same layer
 - [ ] handle best practices for yum operations and cleanup
 
-### `ADD`
-- [x] Command should have at least 2 parameters
-- [x] Source command(s) cannot be absolute or relative paths that exist outside of the current build context
-- [x] Commands with wildcards or multiple sources require that destination is a directory, not a file
-
 ### `CMD`
 - [x] Only a single `CMD` layer is allowed
 - [ ] Better handling of escaped quotes
 - [ ] Detect exec format with expected variable substitution
 
+### `LABEL`
+- [x] Format should be key=value
+
+### `EXPOSE`
+- [x] Only the container port should be listed
+- [ ] All ports should be exposed in a single cache layer (line)
+- [ ] The same port number should not be exposed multiple times
+- [ ] Exposed ports should be numeric and in the accepted range
+
 ### `ENV`
-- [ ] Best practice of only usign a single `ENV` line to reduce cache layer count
+- [ ] Format of `ENV`
+- [ ] Best practice of only using a single `ENV` line to reduce cache layer count
+
+### `ADD`
+- [x] Command should have at least 2 parameters
+- [x] Source command(s) cannot be absolute or relative paths that exist outside of the current build context
+- [x] Commands with wildcards or multiple sources require that destination is a directory, not a file
+
+### `COPY`
+- [ ] Implement checking (similar to ADD)
+
+### `ENTRYPOINT`
+- [ ] Support
+
+### `VOLUME`
+- [ ] Format
+- [ ] Any build steps after VOLUME is declare should not change VOLUME contents
+- [ ] If JSON format, double quotes are required
 
 ### `USER`
 - [x] Should be followed by exactly 1 parameter
 
-### `MAINTAINER`
-- [x] Should be followed by exactly 1 parameter (@ sign)
+### `WORKDIR`
+- [ ] Support
+
+### `ARG`
+- [ ] Support
+- [ ] Prevent redefining the built in ARGs (proxy)
+
+### `ONBUILD`
+- [ ] Support
+
+### `STOPSIGNAL`
+- [ ] Validate input
+- [ ] Only present one time
 
 ### Misc
 - [x] Only valid Dockerfile commands are present
 - [x] All commands should have at least 1 parameter
+- [ ] Check that commands are written as upper case commands
