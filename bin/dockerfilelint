@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var FixMe = require('../lib/dockerfilelint');
+var fixMe = new FixMe();
+
+fixMe.runEngine();
