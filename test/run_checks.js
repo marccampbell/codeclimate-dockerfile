@@ -27,16 +27,16 @@ describe("run_checks", function(){
 
   describe("#aptget_install_with_norecommends(command)", function(){
     it("validates that --no-recommends flag is present on apt-get install commands", function(){
-      expect(run_checks.aptget_hasnorecommends("apt-get install -y --no-recommends python-pip")).to.equal(true);
+      expect(run_checks.aptget_hasnorecommends("apt-get install -y --no-install-recommends python-pip")).to.equal(true);
       expect(run_checks.aptget_hasnorecommends("apt-get install -y python-pip")).to.equal(false);
     });
   });
 
   describe("#aptget_install_with_rmaptlist(command)", function(){
     it("validates that a matching rm command is present on apt-get install commands", function(){
-      expect(run_checks.includes_rmaptlists("apt-get install -y --no-recommends python-pip")).to.equal(false);
-      expect(run_checks.includes_rmaptlists("apt-get install -y --no-recommends python-pip && rm -rf /var/lib/apt/lists/*")).to.equal(true);
-      expect(run_checks.includes_rmaptlists("apt-get install -y --no-recommends python-pip && rm -fr /var/lib/apt/lists/*")).to.equal(true);
+      expect(run_checks.includes_rmaptlists("apt-get install -y --no--install-recommends python-pip")).to.equal(false);
+      expect(run_checks.includes_rmaptlists("apt-get install -y --no-install-recommends python-pip && rm -rf /var/lib/apt/lists/*")).to.equal(true);
+      expect(run_checks.includes_rmaptlists("apt-get install -y --no-install-recommends python-pip && rm -fr /var/lib/apt/lists/*")).to.equal(true);
     });
   });
 });
