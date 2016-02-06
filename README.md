@@ -36,7 +36,7 @@ sudo codeclimate analyze --dev
 - [x] Base image should specify a tag
 - [x] Base image should not use latest tag
 - [x] Support `FROM scratch` without a tag
-- [ ] Support the `FROM <image>@<digest>` syntax
+- [x] Support the `FROM <image>@<digest>` syntax
 - [ ] Allow config to specify "allowed" base layers
 
 ### `MAINTAINER`

@@ -26,6 +26,7 @@ describe("checks", function(){
       expect(checks.base_image_tag("ubuntu:14.04")).to.be.empty;
       expect(checks.base_image_tag("ubuntu:latest")).to.have.length(1);
       expect(checks.base_image_tag("ubuntu")).to.have.length(1);
+      expect(checks.base_image_tag("image@digest")).to.be.empty;
     });
   });
 
