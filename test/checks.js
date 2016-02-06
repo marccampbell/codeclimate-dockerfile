@@ -11,6 +11,14 @@ describe("checks", function(){
     });
   });
 
+  describe("#expose_port_valid(port)", function(){
+    it("validates expose command for a valid port number", function(){
+      expect(checks.expose_port_valid("8000")).to.equal(true);
+      expect(checks.expose_port_valid("abc")).to.equal(false);
+      expect(checks.expose_port_valid("8000:tcp")).to.equal(false);
+    });
+  });
+
   describe("#label_format(args)", function(){
     it("validates label command in key=value format", function(){
       expect(checks.label_format("key=value")).to.be.empty;

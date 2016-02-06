@@ -63,7 +63,7 @@ sudo codeclimate analyze --dev
 - [x] Only the container port should be listed
 - [ ] All ports should be exposed in a single cache layer (line)
 - [ ] The same port number should not be exposed multiple times
-- [ ] Exposed ports should be numeric and in the accepted range
+- [x] Exposed ports should be numeric and in the accepted range
 
 ### `ENV`
 - [x] Format of `ENV`
