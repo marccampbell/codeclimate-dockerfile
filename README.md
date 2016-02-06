@@ -47,6 +47,8 @@ sudo codeclimate analyze --dev
 - [x] apt-get [install | upgrade | remove] should include a -y flag
 - [x] apt-get install commands should include a `--no-install-recommends` flag
 - [x] apt-get install commands should be paired with a `rm -rf /var/lib/apt/lists/*` in the same layer
+- [ ] Avoid running `apt-get upgrade` or `apt-get dist-upgrade`
+- [ ] Never run `apt-get update` without `apt-get install` on the same line
 - [ ] handle best practices for yum operations and cleanup
 
 ### `CMD`
@@ -71,9 +73,12 @@ sudo codeclimate analyze --dev
 - [x] Command should have at least 2 parameters
 - [x] Source command(s) cannot be absolute or relative paths that exist outside of the current build context
 - [x] Commands with wildcards or multiple sources require that destination is a directory, not a file
+- [ ] If an `ADD` command could be a `COPY`, then `COPY` is preferred
+- [ ] Using `ADD` to fetch remote files is discouraged because they cannot be removed from the layer
 
 ### `COPY`
 - [ ] Implement checking (similar to ADD)
+- [ ] Do not `COPY` multiple files on a single command to best use cache
 
 ### `ENTRYPOINT`
 - [ ] Support
