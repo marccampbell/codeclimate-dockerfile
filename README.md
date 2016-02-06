@@ -47,8 +47,8 @@ sudo codeclimate analyze --dev
 - [x] apt-get [install | upgrade | remove] should include a -y flag
 - [x] apt-get install commands should include a `--no-install-recommends` flag
 - [x] apt-get install commands should be paired with a `rm -rf /var/lib/apt/lists/*` in the same layer
-- [ ] Avoid running `apt-get upgrade` or `apt-get dist-upgrade`
-- [ ] Never run `apt-get update` without `apt-get install` on the same line
+- [x] Avoid running `apt-get upgrade` or `apt-get dist-upgrade`
+- [x] Never run `apt-get update` without `apt-get install` on the same line
 - [ ] handle best practices for yum operations and cleanup
 
 ### `CMD`
